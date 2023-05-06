@@ -1,0 +1,5 @@
+#ignore le fichier de migration
+db.sqlite3
+
+#ignore l'environnement python
+/env-django
