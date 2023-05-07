@@ -1,7 +1,8 @@
 {% extends 'listings/base.html' %}
-{% load static %}
 {% block content %}
     <body>
         <p>Test Voici le contenue du fichier home</p>
     </body>
+
+    <img src="{{ service.image_url }}" alt="{{ service.nom }}">
 {% endblock %}

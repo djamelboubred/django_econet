@@ -22,7 +22,9 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', views.home),
+    path('', views.home), #creer un lien pour notre vue en appelant cette vue et en mentionnant le lien qui apparait dans la barre des liens
+    path('service/', views.service), #idem pour notre views.services
+    #path('AddService/', views.add_service, name="AddService"),
 ]
 
 if settings.DEBUG:

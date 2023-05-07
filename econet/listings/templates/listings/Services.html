@@ -1,0 +1,31 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+    <body>
+        <p>voici les services proposé par votre entreprises</p>
+
+        <p>ajouter un services</p>
+        <br>
+        <p>Supprimer un services</p>
+
+        <h1>Ajouter un nouveau service</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id">ID :</label>
+            <input type="text" id="id" name="id"><br>
+    
+            <label for="description">Sequence :</label>
+            <input type="text" id="description" name="sequence"><br>
+    
+            <label for="prix">Prix :</label>
+            <input type="number" id="prix" name="prix"><br>
+    
+            <label for="picture">Image :</label>
+            <input type="file" id="picture" name="picture"><br>
+    
+            <input type="submit" value="Ajouter">
+        </form>
+    
+    </body>
+
+
+{% endblock %}
