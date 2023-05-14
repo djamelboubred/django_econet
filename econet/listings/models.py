@@ -11,7 +11,8 @@ class Service(models.Model): # création du model Service
                                 default='image_service/default.png',) # image du service par défault une image est chargé (à choisir)
     def image_url(self):
         return self.image.url # récupere le lien de l'image sur notre projet pour pouvoir l'affiché plus facilement (pas sur de la pertinence)
-    
+    def __str__(self):
+        return self.nom
     class Meta:
         verbose_name='Service'
         verbose_name_plural='Services'
@@ -34,8 +35,9 @@ class Devis(models.Model): # créer class Formulaire
         ]
     ) 
     pays = models.CharField(max_length=50, help_text='France') #idem que pour l'adresse
+    tel = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{10}$', 'Le numéro de téléphone doit comporter 10 chiffres.')], default='', help_text='Numéro de téléphone')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, default=None)
 
-    
     def clean_pays(self): # fonction qui va venir vérifier que le pays sélectionné est bien la france mais je pense la supprimé
         if self.pays.lower() != 'france':
             raise ValidationError("Le pays doit être 'France'")

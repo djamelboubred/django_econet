@@ -2,12 +2,11 @@ from django.contrib import admin
 from listings.models import Service, Devis
 from django.utils.translation import gettext_lazy as lazy
 
-#class CustomAdminSite(admin.AdminSite):
-#    class Media:
-#        css = {
-#            'all': ('css/custom_admin.css',),
-#        }
-#admin.site.register(CustomAdminSite)
+class CustomAdmin(admin.ModelAdmin): # class pour la personalisation de l'interface admin mais ne fonctionne pas
+    class Media:
+        css = {
+            "all": ("admin/custom_admin.css",),
+        }    
 
 @admin.register(Service)
 class Service(admin.ModelAdmin):

@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+#from dotenv import load_dotenv
+#from .encryption import decrypt
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,15 +33,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #"admin_interface",
-    #"colorfield",
+    'jazzmin', #outils pour modifier l'esthetique de l'interface admin django de notre site
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "listings"
 ]
 
@@ -129,3 +128,56 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+JAZZMIN_UI_TWEAKS = {
+    # Définit si le texte de la barre de navigation doit être petit.
+    "navbar_small_text": False,
+
+    # Définit si le texte du pied de page doit être petit.
+    "footer_small_text": False,
+
+    # Définit si le texte du corps doit être petit.
+    "body_small_text": False,
+
+    # Définit si le texte du nom de la marque doit être petit.
+    "brand_small_text": False,
+
+    # Change la couleur de la marque en rouge.
+    "brand_colour": "#FF0000",
+
+    # Change la couleur de la barre de navigation en rouge foncé.
+    "navbar": "navbar-dark bg-danger",
+
+    # Définit si la bordure de la barre de navigation doit être supprimée.
+    "no_navbar_border": False,
+
+    # Définit si la barre de navigation doit être fixée en haut de la page.
+    "navbar_fixed": True,
+
+    # Définit si la barre latérale doit être fixée en place.
+    "sidebar_fixed": True,
+
+    # Définit le style de la barre latérale.
+    #"sidebar": "sidebar-dark-primary",
+    "sidebar": "sidebar-dark-info", #la couleur est bleu cyan elle s'active lorsqu'on est sur l'onglet sélectionner
+    # Définit si le texte de la barre latérale doit être petit.
+    "sidebar_nav_small_text": False,
+
+    # Définit si la barre latérale peut être développée ou non.
+    "sidebar_disable_expand": False,
+
+    # Définit l'indentation pour les éléments de navigation de niveau enfant dans la barre latérale.
+    "sidebar_nav_child_indent": True,
+
+    # Définit si la barre latérale doit avoir un style compact.
+    "sidebar_nav_compact_style": True,
+
+    # Définit le nom de l'application.
+    #"app_name": "Nom de l'application",
+
+    # Définit si l'option de construction d'interface utilisateur doit être affichée ou non.
+    "show_ui_builder": False,
+}
+
+# Définir la clé API Sendinblue
+SENDINBLUE_API_KEY = os.environ.get('SENDINBLUE_API_KEY')

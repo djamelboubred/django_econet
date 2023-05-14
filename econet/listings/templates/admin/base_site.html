@@ -1,44 +1,6 @@
-<!-- {% extends 'admin/base.html' %} 
-{% block extrahead %}
-    {{block.super}}
-    <style>
-        :root {
-            --primary: red;
-            --secondary: red;
-            --accent: white;
-            --primary-fg: white;
-            --header-color: white;
-            --darkened-bg: white;
-        }
-    </style>
-{% endblock %}
--->
-{% extends "admin/base.html" %}
-
-{% comment %} {% load i18n  eatn_tags static %} {% endcomment %}
-
-{% load i18n %}
-
+{% extends "jazzmin/base.html" %}
 {% load static %}
 
- 
-
-{% block title %}{{ title }} | {% trans "TODOAPP  | ADMIN " %}{% endblock %}
-
-{% block extrastyle %}
-
-    <link rel="stylesheet" type="text/css" href="{% static "admin/admin_color.css" %}"/>
-
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'listings/custom_admin.css' %}">
 {% endblock %}
-
- 
-
-{% block branding %}
-
-    <h1 id="site-name">{% trans "TODOAPP | ADMIN" %}</h1>
-
-{% endblock %}
-
- 
-
-{% block nav-global %}{% endblock %}

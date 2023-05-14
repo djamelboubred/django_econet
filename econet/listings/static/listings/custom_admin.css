@@ -1,0 +1,7 @@
+/* Custom CSS for Jazzmin */
+.jazzmin-header {
+    background-color: red;
+}
+.nav-sidebar .nav-link {
+    color: blue !important;
+}

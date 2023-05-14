@@ -23,9 +23,11 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.home), #creer un lien pour notre vue en appelant cette vue et en mentionnant le lien qui apparait dans la barre des liens
-    path('service/', views.service), #idem pour notre views.services
+    path('Devis/', views.devis, name="devis"), #idem pour notre views.services
+    #path('Confirmation/',views.SendDevis, name='confirmation')
     #path('AddService/', views.add_service, name="AddService"),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

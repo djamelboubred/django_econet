@@ -1,8 +1,20 @@
 {% extends 'listings/base.html' %}
 {% block content %}
-    <body>
-        <p>Test Voici le contenue du fichier home</p>
-    </body>
-
-    <img src="{{ service.image_url }}" alt="{{ service.nom }}">
+    <img src="{{ services.image_url }}" alt="{{ services.nom }}">
+    <h1>List of Services</h1>
+    <ul>
+        {% if services %}
+        <li>
+            {% for service in services %} <!--Pour chaque objet de la classe Service affiche les champs de l'objet-->
+                {{ service.nom }} <!--Champs nom de l'objet Service-->
+                {{ service.description }} <!--Champs description de l'objet Service-->
+                {{ service.prix }}<!--Champs prix dde l'objet Service-->
+                <img src="{{ service.image.url }}" alt="{{ service.nom }}"> <!--Charge l'image de l'objet Service-->
+            {% endfor %}
+        </li>    
+        {% else %}
+        <p>No services available</p> <!-- Si aucun objet n'est contenue dans la base de données pour la classe Service affiche le message "d'erreur"-->
+        {% endif %}
+  </ul>
 {% endblock %}
+
